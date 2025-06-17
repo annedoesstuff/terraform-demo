@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terraform Demo</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
+        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #2C4762; }
+        #status { font-size: 1.2rem; margin-top: 1rem; padding: 0.5rem 1rem; border-radius: 4px; }
+        .loading { color: #666; background-color: #eee; }
+        .success { color: #2a9d8f; background-color: #eaf6f5; }
+        .error { color: #e76f51; background-color: #fcebe8; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>₊✩‧₊˚౨ৎ Terraform Demo ৎ˚₊✩‧₊</h1>
+        <p>Checking backend and database status...</p>
+        <div id="status" class="loading">Status: Pending...</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusDiv = document.getElementById('status');
+            fetch('/api/status')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    statusDiv.textContent = 'DB Connection: ✅ Connected!';
+                    statusDiv.className = 'success';
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                    statusDiv.textContent = 'DB Connection: ❌ FAILED!';
+                    statusDiv.className = 'error';
+                });
+        });
+    </script>
+</body>
+</html>
