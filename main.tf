@@ -28,7 +28,7 @@ resource "docker_image" "backend_image" {
   }
 }
 
-# db container
+# db container --------------------------------------------------
 resource "docker_container" "database" {
   name  = "app-database"
   image = "postgres:13"
@@ -54,7 +54,7 @@ resource "docker_container" "backend" {
   depends_on = [docker_container.database]
 }
 
-# frontend container
+# frontend container ---------------------------------------------
 resource "docker_container" "frontend" {
   name  = "app-frontend"
   image = "nginx:latest"

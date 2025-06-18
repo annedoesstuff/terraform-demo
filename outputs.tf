@@ -6,5 +6,5 @@ output "frontend_url" {
 output "generated_db_password" {
   description = "Randomly generated password for database."
   value       = random_password.db_password.result
-  sensitive   = true # Wichtig: Damit das Passwort nicht im Klartext in der Konsole angezeigt wird
+  sensitive   = true // password hidden
 }

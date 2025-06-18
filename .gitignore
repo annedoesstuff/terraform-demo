@@ -1,0 +1,21 @@
+# Local .terraform directories
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+
+crash.log
+
+*.tfplan
+.terraform.lock.hcl
+
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+*.tfvars
+*.tfvars.json
+
+.DS_Store
+Thumbs.db
