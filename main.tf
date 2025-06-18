@@ -11,13 +11,15 @@ terraform {
   }
 }
 
+
 resource "random_password" "db_password" {
   length  = 16
   special = true
 }
 
+# network for app communication
 resource "docker_network" "app_network" {
-  name = "impressive-app-network"
+  name = "app-network"
 }
 
 # build docker image for backend
@@ -33,23 +35,23 @@ resource "docker_container" "database" {
   name  = "app-database"
   image = "postgres:13"
   networks_advanced {
-    name = docker_network.app_network.name
+    name = docker_network.app_network.name 
   }
   env = [
-    "POSTGRES_PASSWORD=${random_password.db_password.result}"
+    "POSTGRES_PASSWORD=${random_password.db_password.result}" # env-variables
   ]
 }
 
 # backend container ----------------------------------------------
 resource "docker_container" "backend" {
-  name  = "backend-api" # hostname network !!
+  name  = "backend-api" # hostname network 
   image = docker_image.backend_image.name
   networks_advanced {
     name = docker_network.app_network.name
   }
   env = [
-    "DB_HOST=${docker_container.database.name}",
-    "DB_PASSWORD=${random_password.db_password.result}"
+    "DB_HOST=${docker_container.database.name}",  # env-variables
+    "DB_PASSWORD=${random_password.db_password.result}" # env-variables
   ]
   depends_on = [docker_container.database]
 }
@@ -65,6 +67,7 @@ resource "docker_container" "frontend" {
   networks_advanced {
     name = docker_network.app_network.name
   }
+
   # mount nginx-config & html in container
   volumes {
     host_path      = abspath("./nginx-config/default.conf")
