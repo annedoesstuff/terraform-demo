@@ -5,7 +5,6 @@ RUN npm install
 
 COPY index.js . 
 
-
 FROM node:18-alpine
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules

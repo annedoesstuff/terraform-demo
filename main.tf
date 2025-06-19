@@ -53,7 +53,7 @@ resource "docker_container" "backend" {
     "DB_HOST=${docker_container.database.name}",  # env-variables
     "DB_PASSWORD=${random_password.db_password.result}" # env-variables
   ]
-  depends_on = [docker_container.database]
+  depends_on = [docker_container.database] ####### most the time not necessary
 }
 
 # frontend container ---------------------------------------------

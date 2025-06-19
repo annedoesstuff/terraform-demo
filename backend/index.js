@@ -6,9 +6,9 @@ const port = 3000;
 
 // config for db read from environment variable (terraform)
 const pool = new Pool({
-  user: 'postgres', // standard user in postgres
+  user: 'postgres', 
   host: process.env.DB_HOST,
-  database: 'postgres', // standard db
+  database: 'postgres', 
   password: process.env.DB_PASSWORD,
   port: 5432,
 });
