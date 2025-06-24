@@ -19,6 +19,7 @@ A simple project showcasing the power of Infrastructure as Code (IaC) using Terr
 - [Docker](https://docs.docker.com/get-docker/)
 - [Node.js and npm](https://nodejs.org/)
 
+--- 
 ## Installation and Usage
 ### 1. Clone the Repo
 ```bash
@@ -54,6 +55,8 @@ This command destroys all resources created by Terraform (containers, network).
 ```bash
 terraform destroy
 ```
+---
+
 ## File structure
 ```
 .
@@ -73,10 +76,10 @@ terraform destroy
 
 ## Detailed Breakdown
 This demo shows the intelligent linking of the components by Terraform:
-- Random password: random_password provider generates a new password for the DB with every apply.
-- Automatic networking: Terraform creates an isolated Docker network. Containers can find each other via their names (e.g. backend-api).
-- Dynamic configuration: Terraform injects the connection data (the host name of DB container and generated password) as environment variables (DB_HOST, DB_PASSWORD) into backend container. Node.js application reads these variables at startup to connect to database.
-- Custom image build: Terraform automatically builds the Docker image for backend API from the Dockerfile in the backend-app directory.
+- **Random password:** random_password provider generates a new password for the DB with every apply.
+- **Automatic networking:** Terraform creates an isolated Docker network. Containers can find each other via their names (e.g. backend-api).
+- **Dynamic configuration:** Terraform injects the connection data (the host name of DB container and generated password) as environment variables (DB_HOST, DB_PASSWORD) into backend container. Node.js application reads these variables at startup to connect to database.
+- **Custom image build:** Terraform automatically builds the Docker image for backend API from the Dockerfile in the backend-app directory.
 
 ## Author
 [annedoesstuff](https://github.com/annedoesstuff) 
