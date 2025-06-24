@@ -2,7 +2,6 @@
 A simple project showcasing the power of Infrastructure as Code (IaC) using Terraform to provision, configure and manage a containerized 3-tier application locally with Docker.
 
 ## Table of Contents
-- [Architecture](#architecture)
 - [Requirements](#requirements)
 - [Installation and Usage](#installation-and-usage)
   - [1. Clone the Repo](#1-clone-the-repo)
@@ -14,29 +13,6 @@ A simple project showcasing the power of Infrastructure as Code (IaC) using Terr
 - [File Structure](#file-structure)
 - [Detailed Breakdown](#detailed-breakdown)
 - [Author](#author)
-
-
-## Architecture
-```
-graph TD;
-    subgraph Host-Maschine
-        User -- "HTTP-Request http://localhost:8080" --> Nginx;
-    end
-
-    subgraph "Docker-Netzwerk (app_network)"
-        Nginx -- "/api (Reverse Proxy)" --> NodeJS;
-        NodeJS -- "DB-Connection with Credentials (env)" --> Postgres;
-    end
-
-    subgraph Legende
-        Nginx["Frontend (Nginx-Container)"];
-        NodeJS["⚙Backend (Node.js-API-Container)"];
-        Postgres["🗄Datenbank (PostgreSQL-Container)"];
-    end
-```
-- Frontend: Nginx container that delivers a static HTML page and serves as a reverse proxy for the API requests.
-- Backend: Custom Node.js/Express application (Docker image is built by Terraform). It provides a `/status` endpoint that checks the connection to the database.
-- Database: Standard PostgreSQL container.
 
 ## Requirements
 - [Terraform](https://developer.hashicorp.com/terraform/downloads)
