@@ -23,8 +23,8 @@ A simple project showcasing the power of Infrastructure as Code (IaC) using Terr
 ## Installation and Usage
 ### 1. Clone the Repo
 ```bash
-git clone <URL-des-Projekts>
-cd <projekt-verzeichnis>
+git clone https://github.com/annedoesstuff/terraform-demo.git
+cd terraform-demo
 ```
 
 ### 2. initialize Terraform 
