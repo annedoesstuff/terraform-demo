@@ -10,6 +10,7 @@ A simple project showcasing the power of Infrastructure as Code (IaC) using Terr
   - [4. Apply Infrastructure](#4-apply-infrastructure)
   - [5. Verify Success](#5-verify-success)
   - [6. Clean Up](#6-clean-up)
+- [Tests](#tests)
 - [File Structure](#file-structure)
 - [Detailed Breakdown](#detailed-breakdown)
 - [Author](#author)
@@ -55,7 +56,25 @@ This command destroys all resources created by Terraform (containers, network).
 ```bash
 terraform destroy
 ```
----
+--- 
+
+## Tests
+The project has Unit-Tests for the backend app. The tests use Jest and Supertest to check API endpoints via mocking.
+
+1.  **Go to backend:**
+    ```bash
+    cd backend
+    ```
+
+2.  **Execute tests:**
+    ```bash
+    npm test
+    ```
+
+3.  **Expected output:**
+    A successful run shows that API endpoints respond correctly to database connection success and error cases. Output should look like this:
+
+
 
 ## File structure
 ```
