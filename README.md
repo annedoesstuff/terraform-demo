@@ -44,19 +44,20 @@ terraform plan
 You will see that 5 resources are created: the password, the Docker image and the three containers.
 
 ### 5. Apply Infrastructure
-This command executes the plan. It will build the Docker image and start all containers in the correct order.
+This command executes the plan. It will build the Docker image and start all containers in the correct order:
 ```bash
 terraform apply
 ```
 
 ### 6. Verify Success
-- Browser: Open [http://localhost:8080](https://www.google.com/search?q=http://localhost:8080&authuser=3). The page should load and after a short moment the status should change to `DB Connection: ✅ Connected!`.
-- Terminal: Check running containers `docker ps`. You should see the three containers `app-frontend`, `backend-api` and `app-database`.
+- Browser: Open [http://localhost:8080](https://www.google.com/search?q=http://localhost:8080&authuser=3). The page should load and the status should change to `DB Connection: ✅ Connected!`
+- Terminal: Check running containers `docker ps`. You should see the three containers `app-frontend`, `backend-api` and `app-database`:
+  
   ![Screenshot 2025-06-27 213250](https://github.com/user-attachments/assets/dd682d08-0ed0-410f-9e0e-d81f521cc009)
 
 
 ### 6. Clean Up
-This command destroys all resources created by Terraform (containers, network):
+This command destroys all resources created by Terraform:
 ```bash
 terraform destroy
 ```
