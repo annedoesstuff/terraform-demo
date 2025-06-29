@@ -93,7 +93,7 @@ A successful run shows that API endpoints respond correctly to database connecti
 ├── nginx-config/         # Config and HTML for Nginx Frontend
 │   ├── default.conf
 │   └── index.html
-├── main.tf               # main Terraform file, defines all resources
+├── main.tf               # Main Terraform file, defines all resources
 ├── variables.tf          # Input variables for Terraform
 ├── outputs.tf            # Outputs after the `apply`
 └── README.md            
