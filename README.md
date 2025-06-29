@@ -83,10 +83,13 @@ A successful run shows that API endpoints respond correctly to database connecti
 ```
 .
 ├── backend-app/          # Source code & Dockerfile for Node.js API
+│   ├── .dockerignore
 │   ├── Dockerfile
-│   ├── index.js
+│   ├── app.js
+│   ├── app.test.js
 │   ├── package.json
-│   └── package-lock.json
+│   ├── package-lock.json
+│   └── server.js
 ├── nginx-config/         # Config and HTML for Nginx Frontend
 │   ├── default.conf
 │   └── index.html
