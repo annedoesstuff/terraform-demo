@@ -24,7 +24,7 @@ cd terraform-demo
 ```
 ### 2. Install backend dependencies (one-time)
 ```bash
-cd backend-app
+cd backend
 npm install
 cd ..
 ```
